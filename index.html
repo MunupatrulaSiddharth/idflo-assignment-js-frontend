@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IDFLO FORM</title>
+<script src="https://code.angularjs.org/1.7.9/angular.min.js" ></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/AlphaGit/ng-pattern-restrict/master/src/ng-pattern-restrict.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script src = "js/script.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body ng-app = "MyApp" ng-controller="MyController">
+<div class="container">
+    <form ng-submit = "funct(obj)"  id="idfloForm">
+        <div class="form-group row">
+          <label for="name" class="col-sm-2 offset-md-6 col-form-label" >Name</label>
+          <div class="col-sm-6">
+            <input type="text" ng-model = "obj.name" pattern="^[A-Z a-z]+$" class="form-control" id="name" placeholder="Name" required>
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 offset-md-6 col-form-label" >Date of birth</label>
+            <div class="col-sm-6">
+            <input id = dateOfBirth type="date" placeholder="Enter Date" pattern="dd/MM/yyyy" name="dateOfBirth" ng-model="obj.dateofBirth" ng-required="true" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 offset-md-6 col-form-label" >Country</label>
+            <div class="col-sm-6 offset-md-6">
+            <select ng-options="x  for x in countriesData" ng-model="obj.countriesData" class="form-control amtextBoxes" name="country" ng-required="true" ng-change="editCountry(obj.countriesData)"></select>
+        </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 offset-md-6 col-form-label" >City</label>
+            <div class="col-sm-6 offset-md-6">
+            <select ng-options="x  for x in citiesData" ng-model="obj.citiesData" class="form-control amtextBoxes" name="city" ng-required="true" ></select>
+        </div>
+    </div>
+        <div class="form-group row">
+          <div class="col-sm-6 offset-md-6">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+</div>
+</body>
+</html>
